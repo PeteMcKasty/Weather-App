@@ -24,7 +24,7 @@ function searchCity() {
     cityInput.value = '';
 
       // make API request
-  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`)
+  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`)
   .then(res => res.json())
   .then(data => {
     // render current weather
@@ -32,14 +32,14 @@ function searchCity() {
       <div class="weather-item">
         <h3>${data.name} (${new Date().toLocaleDateString()})</h3>
         <img src="https://openweathermap.org/img/w/${data.weather[0].icon}.png" alt="${data.weather[0].description}">
-        <p>Temperature: ${data.main.temp}&deg;C</p>
+        <p>Temperature: ${data.main.temp}&deg;F</p>
         <p>Humidity: ${data.main.humidity}%</p>
         <p>Wind Speed: ${data.wind.speed} m/s</p>
       </div>
     `;
 
     // make API request for 5-day forecast
-    return fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${apiKey}`);
+    return fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${apiKey}`);
   })
   .then(res => res.json())
   .then(data => {
@@ -51,7 +51,7 @@ function searchCity() {
       <div class="weather-item">
         <h3>${new Date(item.dt_txt).toLocaleDateString()}</h3>
         <img src="https://openweathermap.org/img/w/${item.weather[0].icon}.png" alt="${item.weather[0].description}">
-        <p>Temperature: ${item.main.temp}&deg;C</p>
+        <p>Temperature: ${item.main.temp}&deg;F</p>
         <p>Humidity: ${item.main.humidity}%</p>
         <p>Wind Speed: ${item.wind.speed} m/s</p>
       </div>
