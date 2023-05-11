@@ -21,3 +21,7 @@ This application is used to find the forecast in a specified city or zip code fo
 ### Preview:
 
 <img src="./assets/images/weatherapp.png" alt="5 Day Weather App">
+
+### URL:
+
+https://petemckasty.github.io/Weather-App/
