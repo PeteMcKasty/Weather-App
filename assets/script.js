@@ -8,7 +8,10 @@ const searchHistoryEl = document.querySelector('#search-history');
 
 let searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
 
-searchBtn.addEventListener('click', searchCity);
+searchBtn.addEventListener('click', function (event) {
+  event.preventDefault(); 
+  searchCity();
+});
 searchHistoryEl.addEventListener('click', searchHistoryCity);
 
 function searchCity() {
